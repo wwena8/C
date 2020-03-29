@@ -7,6 +7,7 @@ int main(void)
 
 	p = malloc(sizeof(int));
 
-	printf("Hello World\n");
-	exit(0);
+	return printf("Hello World\n");
+	return 100;
+//	exit(0);
 }
