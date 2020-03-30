@@ -11,7 +11,9 @@
     变参与重载 
     
     int scanf(const char *restrict format, ...);
+    
+    字符串无法输入 禁用%s
 
 2 字符输入输出：getchar、putchar
 
-3 字符串输入输出：gets(危险)、puts
+3 字符串输入输出：gets(危险 不会检测缓冲区 用fgets代替)、puts getline
