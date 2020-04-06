@@ -49,15 +49,96 @@
     7）目录：硬链接、符号链接
     
         目录项：
-    
+            
+            硬链接:ln 两个指针指向同一块空间 inode不同  不能给分区与目录建立硬链接         
+            
+            符号链接:快捷方式   inode不同 可以跨分区、可以给目录建立
+           
+        link函数、unlink、remove、rename
+        
     8）utime
+    
+        可更改文件最后读写时间
     
     9）目录的创建于销毁
     
+        mkdir rmdir
+    
     10）更改当前工作路径
     
+        cd chdir
+    
     11）分析目录
+    
+        递归思想：
+        
+        glob
+        opendir()
+    
+    实现一个目录解析
 
-2 系统数据文件和信息
+2 系统数据文件和信息 username.c
+
+    1）/etc/passwd   getpwuid getpwnam
+    
+    2）/etc/group    ls -n
+    
+    3）/etc/shadow
+    
+    4）时间戳   time gmtime localtime mktime strftime
 
 3 进程环境
+
+    1) main函数
+    
+        main(int argc, char **argv)
+    
+    2) 进程的终止情况
+        
+        正常终止    
+        
+            从main返回、
+            
+            exit、_exit或_Exit、   -128~127        _exit不执行钩子函数与io清零
+            
+            最后一个线程从其启动例程返回
+            
+            最后一个线程调用了pthread_exit
+        
+        异常终止
+        
+            调用abort函数 
+            
+            接到一个信号并终止
+            
+            最后一个线程对其取消请求并作出响应 
+            
+        atexit（）：钩子函数       atexit.c    一个进程挂32个函数，逆序执行
+    
+    3）命令行参数分析
+    
+        getopt()
+        
+        getopt_long()
+    
+    4）环境变量
+    
+        export  getenv
+    
+    5）C程序的存储空间布局
+    
+        pmap pid
+    
+    6）库
+    
+        动态库
+        
+        静态库
+        
+        手工装载库
+    
+    7）函数跳转
+    
+        setjmp
+    
+    8）资源的获取与控制
