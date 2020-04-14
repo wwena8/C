@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 #define LEFT 30000000
-#define RIGHT 30000500
+#define RIGHT 30000200
 int main(int argc, char **argv)
 {
 
